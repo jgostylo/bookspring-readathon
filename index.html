@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="dist/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript">
+        if (window.location.hostname !== 'localhost' && window.location.protocol !== 'https:') {
+            window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+        }
+    </script>
+</head>
+<body ng-app="bookspring-readathon" ng-strict-di>
+    <a ui-sref="home">home</a>
+    <a ui-sref="login">login</a>
+    <div class="container">
+        <div ui-view=""></div>
+    </div>
+
+    <script type="text/javascript" src="dist/bundle.js" charset="utf-8"></script>
+</body>
+</html>

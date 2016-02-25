@@ -1,0 +1,37 @@
+{
+  "name": "bookspring-readathon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/app.js",
+  "scripts": {
+    "start": "npm run copy && ./node_modules/.bin/webpack-dev-server --config webpack.config --progress --colors --inline -d --open",
+    "copy": "mkdir -p dist && cp -r ./node_modules/bootstrap/dist ./dist/bootstrap",
+    "clean": "rm -rf dist && ! git branch -D gh-pages",
+    "add-push": "git checkout -b gh-pages && git add cache.manifest dist --force && git commit -m 'build' && git push --force && git checkout -",
+    "build": "./node_modules/.bin/webpack --optimize-minimize && npm run copy",
+    "deploy": "npm run clean && npm run build && npm run add-push",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "appcache-webpack-plugin": "^1.2.1",
+    "css-loader": "^0.23.1",
+    "html-loader": "^0.4.3",
+    "json-loader": "^0.5.4",
+    "ng-annotate-loader": "^0.1.0",
+    "ng-annotate-webpack-plugin": "^0.1.2",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.12",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-permission": "^2.0.1",
+    "angular-ui-bootstrap": "^1.1.2",
+    "angular-ui-router": "^0.2.18",
+    "bootstrap": "^3.3.6",
+    "lodash": "^4.0.0"
+  }
+}
