@@ -1,0 +1,13 @@
+CACHE MANIFEST
+# acd8106725bc0551fef9
+
+./dist/bundle.js
+
+CACHE:
+dist/bootstrap/css/bootstrap.min.css
+
+NETWORK:
+*
+
+SETTINGS:
+prefer-online
