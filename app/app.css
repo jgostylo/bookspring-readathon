@@ -1,4 +1,23 @@
-body {
-    padding: 0;
-    margin: 0;
+.bookspring-blue {
+    color: #003d4d;
+}
+
+.bookspring-light-blue {
+    color: #6EC9E0;
+}
+
+.bookspring-lime {
+    color: #cfdb0d;
+}
+
+.bookspring-bg-blue {
+    background-color: #003d4d;
+}
+
+.bookspring-bg-light-blue {
+    background-color: #6EC9E0;
+}
+
+.bookspring-bg-lime {
+    background-color: #cfdb0d;
 }
