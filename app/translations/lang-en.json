@@ -6,5 +6,8 @@
     "email-address": "Email address",
     "zipcode": "Zipcode",
     "google": "Google",
-    "home": "Home"
+    "home": "Home",
+    "minutes-read": "Minutes Read",
+    "minutes-set": "minutes",
+    "submit-time": "Submit Time"
 }
