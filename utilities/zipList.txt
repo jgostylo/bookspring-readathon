@@ -1,79 +1,75 @@
-78130
-78132
-78602
-78606
-78610
-78613
-78617
-78619
-78620
-78621
-78626
-78628
-78633
-78634
-78640
-78641
-78642
-78644
-78645
-78653
-78654
-78657
-78660
-78664
-78665
-78666
-78669
-78676
-78681
-78701
-78702
-78703
-78704
-78705
-78717
-78719
-78721
-78722
-78723
-78724
-78725
-78726
-78727
-78728
-78729
-78730
-78731
-78732
-78733
-78734
-78734
-78735
-78736
-78737
-78738
-78738
-78739
-78740
-78741
-78742
-78744
-78745
-78745
-78746
-78746
-78747
-78748
-78749
-78750
-78751
-78752
-78753
-78754
-78756
-78757
-78758
-78759
-78942
-78957
+78130,New Braunfels
+78132,New Braunfels
+78602,Bastrop
+78606,Blanco
+78610,Buda
+78613,Cedar Park
+78617,Del Valle
+78619,Driftwood
+78620,Dripping Springs
+78621,Elgin
+78626,Georgetown
+78628,Georgetown
+78633,Georgetown
+78634,Hutto
+78640,Kyle
+78641,Leander
+78642,Liberty Hill
+78644,Lockhart
+78645,Lago Vista
+78653,Manor
+78654,Marble Falls
+78657,Horseshoe Bay
+78660,Pflugerville
+78664,Round Rock
+78665,Round Rock
+78666,San Marcos
+78669,Spicewood
+78676,Wimbereley
+78681,Round Rock
+78701,Austin
+78702,Austin
+78703,Austin
+78704,Austin
+78705,Austin
+78717,Austin
+78719,Austin
+78721,Austin
+78722,Austin
+78723,Austin
+78724,Austin
+78725,Austin
+78726,Austin
+78727,Austin
+78728,Austin
+78729,Austin
+78730,Austin
+78731,Austin
+78732,Austin
+78733,Austin
+78734,Lakeway
+78735,Austin
+78736,Austin
+78737,Austin
+78738,Lakeway
+78739,Austin
+78740,Driftwood
+78741,Austin
+78742,Austin
+78744,Austin
+78745,Sunset Valley
+78746,West Lake Hills
+78747,Austin
+78748,Austin
+78749,Austin
+78750,Austin
+78751,Austin
+78752,Austin
+78753,Austin
+78754,Austin
+78756,Austin
+78757,Austin
+78758,Austin
+78759,Austin
+78942,Smithville
+78957,Smithville

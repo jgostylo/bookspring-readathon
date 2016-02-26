@@ -1,7 +1,13 @@
 import json, sys
 
+
 # file with the list of zip codes that we are interested in
 limitList = [line.strip() for line in open('zipList.txt')]
+limitTown = []
+for x in range(len(limitList)):
+  locationArray = limitList[x].split(',')
+  limitList[x] = locationArray[0]
+  limitTown.append(locationArray[1])
 
 with open('texas.topo.json') as data_file:    
     data = json.load(data_file)
@@ -10,7 +16,7 @@ with open('texas.topo.json') as data_file:
 newGeometries = []
 for value in data['objects']['Texas.geo']['geometries']:
   if value['id'] in limitList:
-    print value['id']
+    value['town'] = limitTown[limitList.index(value['id'])]
     newGeometries.append(value)
 
 newData = {}
