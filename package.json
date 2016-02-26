@@ -15,7 +15,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "angular-translate": "^2.9.2",
     "appcache-webpack-plugin": "^1.2.1",
     "css-loader": "^0.23.1",
     "html-loader": "^0.4.3",
@@ -29,10 +28,8 @@
   },
   "dependencies": {
     "angular": "^1.5.0",
-    "angular-permission": "^2.0.1",
     "angular-translate": "^2.9.2",
     "angular-ui-bootstrap": "^1.1.2",
-    "angular-ui-router": "^0.2.18",
     "bootstrap": "^3.3.6",
     "firebase": "^2.4.1",
     "lodash": "^4.0.0"

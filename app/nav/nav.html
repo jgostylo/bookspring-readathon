@@ -8,6 +8,18 @@
                 <li><a ui-sref="home" translate="home"></a></li>
                 <li><a ui-sref="login" translate="login"></a></li>
                 <li><a ui-sref="map" translate="map"></a></li>
+                <li><a ui-sref="reading-log" translate="reading-log"></a></li>
+
+                <!-- unhide language selection when needed-->
+                <li uib-dropdown class="hidden">
+                  <a uib-dropdown-toggle translate="language"></a>
+                  <ul uib-dropdown-menu>
+                    <li>
+                      <a ng-click="changeLanguage('en')">English</a>
+                      <a ng-click="changeLanguage('es')">Spanish</a>
+                    </li>
+                  </ul>
+                </li>
             </ul>
         </div>
     </div>

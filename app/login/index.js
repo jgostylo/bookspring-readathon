@@ -1,5 +1,7 @@
 'use strict';
 
 module.exports = require('angular').module('bsr-login', [])
-    .config(require('./login-states'))
-    .controller('loginController', require('./login-controller'));
+    .component('login', {
+        template: require('./login.html'),
+        controller: require('./login-controller')
+    });
