@@ -1,4 +1,7 @@
 {
     "login": "Login",
+    "facebook": "Facebook",
+    "badges": "Badges",
+    "google": "Google",
     "home": "Home"
 }

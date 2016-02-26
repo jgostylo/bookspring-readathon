@@ -3,7 +3,7 @@
 /* @ngInject */
 function ReadingBadgesController($scope) {
     $scope.hasFiveHoursBadge = true;
-    $scope.hasSevendHoursBadge = true;
+    $scope.hasSevenHoursBadge = true;
     $scope.hasTenHoursBadge = true;
     $scope.hasTwoConsecutiveDaysBadge = true;
 }
