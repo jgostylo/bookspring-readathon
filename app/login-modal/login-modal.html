@@ -1,8 +1,21 @@
 <div class="modal-header">
-    <h4 class="modal-title" translate="login"></h4>
+    <h4 class="modal-title" translate="login-or-signup"></h4>
 </div>
-<div class="modal-body text-center">
-    <div class="row">
+<div class="modal-body">
+    <form class="clearfix">
+        <div class="form-group">
+            <label for="email" translate="email-address"></label>
+            <input type="email" class="form-control" id="email" placeholder="{{'email-address' | translate}}">
+        </div>
+        <div class="form-group">
+            <label for="zipcode" translate="zipcode"></label>
+            <input type="zipcode" class="form-control" id="zipcode" placeholder="{{'zipcode' | translate}}">
+        </div>
+        <button type="submit" class="btn btn-default pull-right" translate="login"></button>
+    </form>
+
+    <!-- @TODO: social media logins -->
+    <div class="row hidden">
         <div class="col-md-6">
             <button class="btn btn-lg btn-facebook" translate="facebook"></button>
         </div>

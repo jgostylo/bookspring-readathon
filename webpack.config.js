@@ -20,10 +20,10 @@ module.exports = {
         ]
     },
     plugins: [
-        new AppCachePlugin({
-            cache: ['dist/bootstrap/css/bootstrap.min.css'],
-            settings: ['prefer-online'],
-            output: 'cache.manifest'
-        })
+        // new AppCachePlugin({
+        //     cache: ['dist/bootstrap/css/bootstrap.min.css'],
+        //     settings: ['prefer-online'],
+        //     output: 'cache.manifest'
+        // })
     ]
 };

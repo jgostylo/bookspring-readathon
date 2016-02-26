@@ -1,7 +1,10 @@
 {
     "login": "Login",
+    "login-or-signup": "Login or Signup",
     "facebook": "Facebook",
     "badges": "Badges",
+    "email-address": "Email address",
+    "zipcode": "Zipcode",
     "google": "Google",
     "home": "Home"
 }
