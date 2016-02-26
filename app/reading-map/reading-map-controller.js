@@ -1,8 +1,8 @@
 'use strict';
 
 /* @ngInject */
-function MapController($scope) {
+function ReadingMapController($scope) {
     $scope.msg = 'It Works';
 }
 
-module.exports = MapController;
+module.exports = ReadingMapController;

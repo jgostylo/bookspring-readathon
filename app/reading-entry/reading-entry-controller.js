@@ -1,8 +1,8 @@
 'use strict';
 
 /* @ngInject */
-function ReadingLogController($scope) {
+function ReadingEntryController($scope) {
     $scope.msg = 'It Works';
 }
 
-module.exports = ReadingLogController;
+module.exports = ReadingEntryController;
