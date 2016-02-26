@@ -6,3 +6,6 @@ require('angular-ui-bootstrap');
 require('angular-translate');
 require('firebase');
 require('angularfire');
+require('d3');
+require('d3-tip');
+require('topojson');
