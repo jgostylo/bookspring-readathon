@@ -1,0 +1,20 @@
+.btn-facebook {
+    color: white;
+    background-color: #3b5998;
+}
+
+.btn-google {
+    color: white;
+    background-color: #c32f10;
+}
+
+.btn-google,
+.btn-facebook {
+    width: 100%;
+}
+
+.btn-google:hover,
+.btn-facebook:hover {
+    color: white;
+    text-decoration: underline;
+}
