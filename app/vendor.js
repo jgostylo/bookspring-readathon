@@ -5,3 +5,4 @@ require('angular');
 require('angular-ui-bootstrap');
 require('angular-translate');
 require('firebase');
+require('angularfire');

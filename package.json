@@ -5,7 +5,9 @@
   "main": "app/app.js",
   "scripts": {
     "start": "npm run copy && ./node_modules/.bin/webpack-dev-server --config webpack.config --progress --colors --inline -d --open",
-    "copy": "mkdir -p dist && cp -r ./node_modules/bootstrap/dist ./dist/bootstrap",
+    "copy": "mkdir -p dist && npm run copy-vendor && npm run copy-resources",
+    "copy-vendor": "cp -r ./node_modules/bootstrap/dist ./dist/bootstrap",
+    "copy-resources": "cp -r ./app/resources dist",
     "clean": "rm -rf dist && ! git branch -D gh-pages",
     "add-push": "git checkout -b gh-pages && git add cache.manifest dist --force && git commit -m 'build' && git push --force && git checkout -",
     "build": "./node_modules/.bin/webpack --optimize-minimize && npm run copy",
@@ -30,6 +32,7 @@
     "angular": "^1.5.0",
     "angular-translate": "^2.9.2",
     "angular-ui-bootstrap": "^1.1.2",
+    "angularfire": "^1.1.4",
     "bootstrap": "^3.3.6",
     "firebase": "^2.4.1",
     "lodash": "^4.0.0"
