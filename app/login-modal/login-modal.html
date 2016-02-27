@@ -1,20 +1,67 @@
-<div class="modal-header">
-    <h4 class="modal-title" translate="login-or-signup"></h4>
-</div>
-<div class="modal-body">
-    <form class="clearfix">
-        <div class="form-group">
-            <label for="email" translate="email-address"></label>
-            <input type="email" class="form-control" id="email" placeholder="{{'email-address' | translate}}">
-        </div>
-        <div class="form-group">
-            <label for="zipcode" translate="zipcode"></label>
-            <input type="zipcode" class="form-control" id="zipcode" placeholder="{{'zipcode' | translate}}">
-        </div>
-        <button type="submit" class="btn btn-default pull-right" translate="login"></button>
-    </form>
+<div class="modal-content">
+    <div class="modal-header" align="center">
+        <h4 class="modal-title pull-left" translate="login" ng-hide="registration.mode"></h4>
+        <h4 class="modal-title pull-left" translate="register" ng-show="registration.mode"></h4>
 
-    <!-- @TODO: social media logins -->
+        <div class="btn-group pull-right" uib-dropdown>
+          <button type="button" class="btn btn-default" uib-dropdown-toggle>
+            <span translate="language"></span> <span class="caret"></span>
+          </button>
+          <ul uib-dropdown-menu role="menu">
+              <li><a ng-click="changeLanguage('en')">English</a></li>
+              <li><a ng-click="changeLanguage('es')">Spanish</a></li>
+          </ul>
+        </div>
+    </div>
+
+    <!-- Begin # Login Form -->
+    <form name="login-form" ng-hide="registration.mode">
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="email" translate="email-address"></label>
+                <input required type="email" class="form-control" id="email" ng-model="user.email">
+            </div>
+            <div class="form-group">
+                <label for="zipcode" translate="zipcode"></label>
+                <input required type="zipcode" class="form-control" id="zipcode" ng-model="user.zipCode">
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="login()" translate="login"></button>
+            </div>
+            <div>
+                <a type="button" class="btn btn-link" translate="register" ng-click="registration.mode = !registration.mode"></a>
+            </div>
+        </div>
+    </form>
+    <!-- End # Login Form -->
+
+    <!-- Begin | Register Form -->
+    <form name="register-form" ng-show="registration.mode">
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="email" translate="email-address"></label>
+                <input required type="email" class="form-control" id="email" ng-model="registration.email">
+            </div>
+            <div class="form-group">
+                <label for="zipcode" translate="zipcode"></label>
+                <input required type="zipcode" class="form-control" id="zipcode" ng-model="registration.zipCode">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="register()" translate="register"></button>
+            </div>
+            <div>
+                <a type="button" class="btn btn-link" translate="login" ng-click="registration.mode = !registration.mode"></a>
+            </div>
+        </div>
+    </form>
+    <!-- End | Register Form -->
+
+    <!-- @TODO social buttons -->
     <div class="row hidden">
         <div class="col-md-6">
             <button class="btn btn-lg btn-facebook" translate="facebook"></button>

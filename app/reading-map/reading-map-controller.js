@@ -5,7 +5,6 @@ function ReadingMapController($scope) {
     var d3 = require('d3');
     d3.tip = require('d3-tip');
     var topojson = require('topojson');
-console.log(topojson);
     //var austin = require('./texas.json');
     //require('./texas.json');
     $scope.msg = 'It Works';
@@ -19,7 +18,7 @@ console.log(topojson);
     var tip = d3.tip()
         .attr('class', 'd3-tip')
         .offset(function() {
-            return '[' + d3.event.pageX - 34,d3.event.pageY - 12+']'
+            return '[' + d3.event.pageX - 34,d3.event.pageY - 12+']';
         })
         .html(function(d) {
             return "<strong>Zipcode:</strong> <span style='color:red'>" + d.id + "</span>";

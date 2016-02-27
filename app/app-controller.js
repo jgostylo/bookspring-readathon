@@ -1,41 +1,28 @@
 'use strict';
 
 /* @ngInject */
-function AppController($scope) {
-	$scope.user = null;
-	$scope.firebaseRef = new Firebase('https://popping-heat-442.firebaseio.com');
-	
-	$scope.login = function(user) {
+function AppController($scope, $uibModal, $window) {
 
-		$scope.firebaseRef.authWithPassword({
-			email : $scope.user.email,
-			password : $scope.user.zipCode
-		}, function(error, authData) {
-			if (error) {
-				console.log("Authentication Failed.");
-			} else {
-				console.log("Authenticated successfully with payload:",
-						authData.uid);
-			}
-		});
-	}
-	
-	$scope.createUser = function(user) {
-		var firebaseURL = 'https://popping-heat-442.firebaseio.com'
-		var firebase = new Firebase(firebaseURL);
+    $scope.user = $window.sessionStorage.getItem('bsr-auth');
 
-		$scope.firebaseRef.createUser({
-			  email    : $scope.user.baseEmail,
-			  password : $scope.user.baseZipCode
-			}, function(error, userData) {
-			  if (error) {
-			    console.log("Error creating user:", error);
-			  } else {
-			    console.log($scope.user.baseEmail , " Successfully created user account with uid:", userData.uid);
-			  }
-			});
-	}
+    function showLoginModal() {
+        var modalInstance = $uibModal.open({
+            template: require('./login-modal/login-modal.html'),
+            controller: 'loginModalController',
+            // user must login. prevent from closing
+            backdrop : 'static',
+            keyboard: false
+        });
 
+        modalInstance.result.then(function (user) {
+            $scope.user = user;
+            $window.sessionStorage.setItem('bsr-auth', JSON.stringify(user));
+        }).catch(showLoginModal);
+    }
+
+    if (!$scope.user) {
+        showLoginModal();
+    }
 }
 
 module.exports = AppController;

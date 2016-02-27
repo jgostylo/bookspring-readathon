@@ -1,4 +1,17 @@
 {
-    "login": "Login",
-    "home": "Home"
+    "app-name": "Bookspring",
+    "language": "Idioma",
+    "login": "Iniciar sesión",
+    "login-or-signup": "Inicia sesión o regístrate",
+    "facebook": "Facebook",
+    "badges": "insignias",
+    "email-address": "Dirección de correo electrónico",
+    "zipcode": "Código postal",
+    "google": "google",
+    "home": "Hogar",
+    "register": "Registro",
+    "minutes-read": "Lee minutos",
+    "minutes-set": "minutos",
+    "youve-read-this-much": "Usted ha leído {{ }} horas",
+    "submit-time": "presentar"
 }

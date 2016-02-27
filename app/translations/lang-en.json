@@ -1,4 +1,6 @@
 {
+    "app-name": "Bookspring",
+    "language": "Language",
     "login": "Login",
     "login-or-signup": "Login or Signup",
     "facebook": "Facebook",
@@ -7,7 +9,9 @@
     "zipcode": "Zipcode",
     "google": "Google",
     "home": "Home",
+    "register": "Register",
     "minutes-read": "Minutes Read",
     "minutes-set": "minutes",
+    "youve-read-this-much": "You've read {{hours}}",
     "submit-time": "Submit Time"
 }
