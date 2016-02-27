@@ -5,7 +5,30 @@
     <link rel="stylesheet" type="text/css" href="dist/bootstrap/css/bootstrap.min.css">
 </head>
 <body ng-app="bookspring-readathon" ng-strict-di ng-controller="appController">
+	
     <nav></nav>
+    
+    <H1>Login Form</H1>
+    <form class="simple-form">
+    	<label>Email</label><input type="email" ng-model="user.email" /></label> 
+    	<br />
+    	<label>Zip Code</label><input type="text" ng-model="user.zipCode" /></label>
+    	<br /> 
+    	<input type="submit" ng-click="login(user)" value="Login" />
+    </form>
+    <br/>
+    
+    <H1>Registration Form For First Time Users</H1>
+    <form class="simple-form">
+    	<label>Email</label><input type="email" ng-model="user.baseEmail" /></label> 
+    	<br />
+    	<label>Zip Code</label><input type="text" ng-model="user.baseZipCode" /></label>
+    	<br /> 
+    	<input type="submit" ng-click="createUser(user)" value="Register" />
+    </form>
+    
+    <div ng-show="authenticationData">Hei {{user.email}}.. You have successfully logged in. </div>
+    
     <div class="container">
         <reading-badges></reading-badges>
         <reading-entry></reading-entry>
