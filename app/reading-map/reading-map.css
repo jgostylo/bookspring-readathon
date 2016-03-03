@@ -3,6 +3,7 @@
     stroke: #777;
     stroke-linejoin: round;
     stroke-width: 1;
+    stroke-dasharray:3,2;
 }
 
 .subunit:hover {
@@ -27,6 +28,10 @@
     color: #fff;
     border-radius: 2px;
     pointer-events: none;
+}
+
+#map{
+    width: 100%;
 }
 
 /* Creates a small triangle extender for the tooltip */
