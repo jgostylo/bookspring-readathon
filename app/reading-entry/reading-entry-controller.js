@@ -34,19 +34,19 @@ function ReadingEntryController($scope, $window, bsrFirebase, appFactory) {
                 minutesReadMap[entry.zipCode] = entry.minutesRead;
             }
         });
-        $scope.$apply(function(){
+        $scope.$evalAsync(function(){
             $scope.minutesReadMap = minutesReadMap;
         });
     });
 
     var user = appFactory.getUser();
-    bsrFirebase.child('entries/users').child(user.uid).on('value', function(dataSnapshot) {
+    bsrFirebase.child('entries/users').child(user.uid).orderByChild('submitted').startAt(startDate).on('value', function(dataSnapshot) {
         var minutesRead = 0;
         dataSnapshot.forEach(function (entrySnapshot) {
             var entry = entrySnapshot.val();
             minutesRead += entry.minutesRead;
         });
-        $scope.$apply(function(){
+        $scope.$evalAsync(function(){
             $scope.minutesRead = minutesRead;
         });
     });
