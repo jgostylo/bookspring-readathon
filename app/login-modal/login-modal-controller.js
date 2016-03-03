@@ -1,5 +1,7 @@
 'use strict';
 
+var angular = require('angular');
+
 /* @ngInject */
 function LoginModalController($scope, $window, $uibModalInstance, bsrFirebase, $translate) {
 
