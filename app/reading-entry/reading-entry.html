@@ -4,8 +4,8 @@
         <div class="panel-body">
             <form ng-submit="submitTime()">
               <div class="btn-group" uib-dropdown dropdown-append-to-body>
-                <button id="btn-append-to-to-body" type="button" class="btn btn-primary" uib-dropdown-toggle>
-                  <span>{{minutesRead}} {{"minutes-read" | translate}}</span> <span class="caret"></span>
+                <button type="button" class="btn btn-primary" uib-dropdown-toggle>
+                  <span>{{entry.minutesRead}} {{"minutes-read" | translate}}</span> <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-to-body">
                   <li ng-repeat="value in minutesArray" role="menuitem"><a ng-click="setTime(value)">{{ value }} <span translate="minutes-set"></span></a></li>
@@ -13,7 +13,7 @@
               </div>
 
               <button type="submit" class="btn btn-primary submit-minutes-read"><span translate="submit-time"></span></button>
-              
+
             </form>
         </div>
     </div>

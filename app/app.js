@@ -14,5 +14,7 @@ module.exports = require('angular').module('bookspring-readathon', [
     require('./reading-map').name,
     require('./firebase').name,
     require('./translations').name,
-]).controller('appController', require('./app-controller'));
+])
+.controller('appController', require('./app-controller'))
+.factory('appFactory', require('./app-factory'));
 

@@ -1,9 +1,9 @@
 'use strict';
 
 /* @ngInject */
-function AppController($scope, $uibModal, $window) {
+function AppController($scope, $uibModal, $window, appFactory) {
 
-    $scope.user = $window.sessionStorage.getItem('bsr-auth');
+    $scope.user = appFactory.getUser();
 
     function showLoginModal() {
         var modalInstance = $uibModal.open({
@@ -16,7 +16,7 @@ function AppController($scope, $uibModal, $window) {
 
         modalInstance.result.then(function (user) {
             $scope.user = user;
-            $window.sessionStorage.setItem('bsr-auth', JSON.stringify(user));
+            appFactory.setUser(user);
         }).catch(showLoginModal);
     }
 

@@ -2,7 +2,7 @@
 
 require('./reading-entry.css');
 
-module.exports = require('angular').module('bsr-reading-entry', [])
+module.exports = require('angular').module('reading-entry', [])
     .component('readingEntry', {
         template: require('./reading-entry.html'),
         controller: require('./reading-entry-controller')

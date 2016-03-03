@@ -12,6 +12,6 @@
     "register": "Registro",
     "minutes-read": "Lee minutos",
     "minutes-set": "minutos",
-    "youve-read-this-much": "Usted ha leído {{ }} horas",
+    "youve-read-this-much": "Usted ha leído {{ hours }} horas",
     "submit-time": "presentar"
 }
