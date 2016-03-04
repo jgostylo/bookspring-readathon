@@ -1,7 +1,7 @@
 'use strict';
 
 /* @ngInject */
-function AppController($scope, $uibModal, $window, appFactory) {
+function AppController($timeout, $scope, $rootScope, $uibModal, $window, appFactory) {
 
     $scope.user = appFactory.getUser();
 
@@ -22,6 +22,12 @@ function AppController($scope, $uibModal, $window, appFactory) {
 
     if (!$scope.user) {
         showLoginModal();
+    }
+    else {
+        $timeout(function () {
+            // need time for child controllers to initialize #shameface
+            $rootScope.$broadcast('login', $scope.user);
+        });
     }
 }
 

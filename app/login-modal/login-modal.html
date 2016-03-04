@@ -17,13 +17,14 @@
     <!-- Begin # Login Form -->
     <form name="loginForm" ng-hide="form.isRegistration" ng-submit="login()" role="form">
         <div class="modal-body">
+            <div ng-show="form.msgTranslateId" class="alert alert-danger" role="alert">{{form.msgTranslateId | translate}}</div>
             <div class="form-group" ng-class="{ 'has-error': loginForm.email.$dirty && loginForm.email.$error.required || loginForm.email.$dirty && !loginForm.email.$valid }">
                 <label for="email" translate="email-address"></label>
                 <input required type="email" class="form-control" name="email" id="email" ng-model="user.email">
                 <span ng-show="loginForm.email.$dirty && loginForm.email.$error.required" class="help-block" translate="email-required"></span>
                 <span ng-show="loginForm.email.$dirty && !loginForm.email.$valid" class="help-block" translate="email-invalid"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-class="{ 'has-error': loginForm.zipcode.$dirty && loginForm.zipcode.$error.required || loginForm.zipcode.$dirty && !loginForm.zipcode.$valid }">
                 <label for="zipcode" translate="zipcode"></label>
                 <input required type="text" class="form-control" name="zipcode" id="zipcode" ng-model="user.zipCode" pattern="[0-9]*">
                 <span ng-show="loginForm.zipcode.$dirty && loginForm.zipcode.$error.required" class="help-block" translate="zipcode-required"></span>
@@ -36,7 +37,7 @@
                 <button type="submit" class="btn btn-primary btn-lg btn-block" ng-disabled="loginForm.$invalid || form.isLoading" translate="login"></button>
             </div>
             <div>
-                <a type="button" class="btn btn-link" translate="register" ng-click="form.isRegistration = !form.isRegistration"></a>
+                <a type="button" class="btn btn-link" translate="register" ng-click="form.isRegistration = !form.isRegistration; form.msgTranslateId = ''"></a>
             </div>
         </div>
     </form>
@@ -45,13 +46,14 @@
     <!-- Begin | Register Form -->
     <form name="registrationForm" ng-show="form.isRegistration" ng-submit="register()" role="form">
         <div class="modal-body">
+        <div ng-show="form.msgTranslateId" class="alert alert-danger" role="alert">{{form.msgTranslateId | translate}}</div>
         <div class="form-group" ng-class="{ 'has-error': registrationForm.email.$dirty && registrationForm.email.$error.required || registrationForm.email.$dirty && !registrationForm.email.$valid }">
                 <label for="email" translate="email-address"></label>
                 <input required type="email" name="email" class="form-control" id="email" ng-model="registration.email">
                 <span ng-show="registrationForm.email.$dirty && registrationForm.email.$error.required" class="help-block" translate="email-required"></span>
                 <span ng-show="registrationForm.email.$dirty && !registrationForm.email.$valid" class="help-block" translate="email-invalid"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-class="{ 'has-error': registrationForm.zipcode.$dirty && registrationForm.zipcode.$error.required || registrationForm.zipcode.$dirty && !registrationForm.zipcode.$valid }">
                 <label for="zipcode" translate="zipcode"></label>
                 <input required type="text" name="zipcode" class="form-control" id="zipcode" ng-model="registration.zipCode" pattern="[0-9]*">
                 <span ng-show="registrationForm.zipcode.$dirty && registrationForm.zipcode.$error.required" class="help-block" translate="zipcode-required"></span>
@@ -63,7 +65,7 @@
                 <button type="submit" class="btn btn-primary btn-lg btn-block" ng-disabled="registrationForm.$invalid || form.isLoading" translate="register"></button>
             </div>
             <div>
-                <a type="button" class="btn btn-link" translate="login" ng-click="form.isRegistration = !form.isRegistration"></a>
+                <a type="button" class="btn btn-link" translate="login" ng-click="form.isRegistration = !form.isRegistration; form.msgTranslateId = ''"></a>
             </div>
         </div>
     </form>

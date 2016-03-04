@@ -10,8 +10,14 @@
     "google": "Google",
     "home": "Home",
     "register": "Register",
-    "minutes-read": "Minutes Read",
+    "minutes": "minutes",
+    "email-invalid": "Invalid email",
+    "zipcode-invalid": "Invalid zipcode",
+    "minutes-read": "Minutes read",
     "minutes-set": "minutes",
+    "login-failed": "Login failed",
+    "registration-failed": "Registration failed",
     "youve-read-this-much": "You've read {{hours}}",
+    "logout": "Logout",
     "submit-time": "Submit Time"
 }

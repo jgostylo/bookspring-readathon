@@ -3,6 +3,7 @@
 require('./app.css');
 require('./app-cache');
 require('./vendor');
+// require('./mock');  // generates mock data
 
 module.exports = require('angular').module('bookspring-readathon', [
     'ui.bootstrap',

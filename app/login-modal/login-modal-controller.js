@@ -3,29 +3,37 @@
 var angular = require('angular');
 
 /* @ngInject */
-function LoginModalController($scope, $window, $uibModalInstance, bsrFirebase, $translate) {
+function LoginModalController($rootScope, $scope, $window, $uibModalInstance, bsrFirebase, $translate) {
 
     var isPreviousUser = $window.localStorage.getItem('isUser');
 
     function handleLogin(error, authData) {
         if (error) {
             console.log(error);
-            $scope.form.msgTranslateId = 'login-failed';
+            $scope.$applyAsync(function () {
+                $scope.form.msgTranslateId = 'login-failed';
+            });
             return;
         }
-        $uibModalInstance.close(angular.extend(authData, $scope.user));
+        var user = angular.extend(authData, $scope.user);
+        $rootScope.$broadcast('login', user);
+        $uibModalInstance.close(user);
     }
 
     function handleRegistration(registrationError, userData) {
         if (registrationError) {
             console.log(registrationError);
-            $scope.form.msgTranslateId = 'registration-failed';
+            $scope.$applyAsync(function () {
+                $scope.form.msgTranslateId = 'registration-failed';
+            });
             return;
         }
         bsrFirebase.child('users').child(userData.uid).set($scope.registration, function (storageError) {
             if (storageError) {
                 console.log(storageError);
-                $scope.form.msgTranslateId = 'registration-failed';
+                $scope.$applyAsync(function () {
+                    $scope.form.msgTranslateId = 'registration-failed';
+                })
             }else {
                 $uibModalInstance.close(angular.extend(userData, $scope.registration));
                 $window.localStorage.setItem('isUser', true);
