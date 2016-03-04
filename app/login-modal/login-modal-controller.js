@@ -16,11 +16,19 @@ function LoginModalController($rootScope, $scope, $window, $uibModalInstance, bs
             });
             return;
         }
-        var user = angular.extend(authData, $scope.user);
+        var user = createFullUser(authData, $scope.user);
+        notifyAppOfLogin(user);
+        $uibModalInstance.close(user);
+    }
+
+    function createFullUser(authData, user) {
+        return angular.extend(authData, $scope.user);
+    }
+
+    function notifyAppOfLogin(user) {
         $scope.$applyAsync(function () {
             $rootScope.$broadcast('login', user);
         });
-        $uibModalInstance.close(user);
     }
 
     function handleRegistration(registrationError, userData) {
@@ -40,6 +48,8 @@ function LoginModalController($rootScope, $scope, $window, $uibModalInstance, bs
                 });
             }else {
                 $uibModalInstance.close(angular.extend(userData, $scope.registration));
+                var user = createFullUser(userData, $scope.user);
+                notifyAppOfLogin(user);
                 $window.localStorage.setItem('isUser', true);
             }
         });
