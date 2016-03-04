@@ -2,12 +2,14 @@
 
 /* @ngInject */
 function ReadingMapController($scope) {
+    $scope.dateRangeArray = ["1 Day", "1 Week", "1 month"];
+
     var d3 = require('d3');
     d3.tip = require('d3-tip');
     var topojson = require('topojson');
     var sampleZipcodeData = [
         {
-            "zipcode":"78641",
+            "zipcode":"78957",
             "hours":3
         },
         {
@@ -20,6 +22,7 @@ function ReadingMapController($scope) {
         }
     ];
 
+
     function sumZipcodes(data){
         var sd =  d3.nest()
             .key(function(d) { return d.zipcode;})
@@ -29,7 +32,7 @@ function ReadingMapController($scope) {
             .entries(data);
         sd.forEach(function(d) {
             d.zipcode = d.key;
-            d.totalHours = d.values;
+            d.totalTime = d.values;
         });
         return sd;
     }
@@ -51,8 +54,8 @@ function ReadingMapController($scope) {
         }
         return output;
     }
-
-
+    var colorScale = d3.scale.linear()
+        .range(['beige', 'red']);
 
     var margin = {top: 10, left: 10, bottom: 10, right: 10}
         , width = parseInt(d3.select('#map').style('width'))
@@ -79,13 +82,14 @@ function ReadingMapController($scope) {
         .offset([0,1])
         .html(function(d) {
             return "<div><strong>Zipcode:</strong> <span style='color:red'>" + d.id + "</span></div>" +
-                "<div><strong>Town:</strong> <span style='color:red'>" + d.properties.town + "</span></div>";
+                "<div><strong>Town:</strong> <span style='color:red'>" + d.properties.town + "</span></div>" +
+                "<div><strong>Time Read:</strong> <span style='color:red'>" + d.properties.timeRead + "</span></div>";
         });
     svg.call(tip);
     d3.json("/app/reading-map/texas.json", function(error, tx) {
         if (error) return console.error(error);
         var texas = topojson.feature(tx, tx.objects.texas);
-
+        colorScale.domain(d3.extent(sumData, function(d){ return d.totalTime}));
         var mergedData = join(sumData, texas.features, "zipcode", "id", function(town, zipcode) {
             return {
                 id: town.id,
@@ -93,15 +97,19 @@ function ReadingMapController($scope) {
                 geometry: town.geometry,
                 properties: {
                     town: town.properties.town,
-                    zipcode:(zipcode !== undefined) ? zipcode.hours : null
+                    timeRead:(zipcode !== undefined) ? zipcode.totalTime : null,
+                    color:(zipcode !== undefined) ? colorScale(zipcode.totalTime) : null,
                 }
             };
         });
+        console.log(mergedData);
+
         svg.selectAll(".subunit")
             .data(mergedData)
             .enter().append("path")
             .attr("class", function(d) { return "subunit zc" + d.id; })
             .attr("d", path)
+            .attr("fill", function(d){ return d.properties.color ? d.properties.color : "white" })
             .on('mouseover', tip.show)
             .on('mouseout', tip.hide);
     });

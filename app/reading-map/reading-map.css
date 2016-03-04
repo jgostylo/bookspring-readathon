@@ -1,13 +1,15 @@
 .subunit.zc78130, .subunit.zc78132, .subunit.zc78602, .subunit.zc78606, .subunit.zc78610, .subunit.zc78613, .subunit.zc78617, .subunit.zc78619, .subunit.zc78620, .subunit.zc78621, .subunit.zc78626, .subunit.zc78628, .subunit.zc78633, .subunit.zc78634, .subunit.zc78640, .subunit.zc78641, .subunit.zc78642, .subunit.zc78644, .subunit.zc78645, .subunit.zc78653, .subunit.zc78654, .subunit.zc78657, .subunit.zc78660, .subunit.zc78664, .subunit.zc78665, .subunit.zc78666, .subunit.zc78669, .subunit.zc78676, .subunit.zc78681, .subunit.zc78701, .subunit.zc78702, .subunit.zc78703, .subunit.zc78704, .subunit.zc78705, .subunit.zc78717, .subunit.zc78719, .subunit.zc78721, .subunit.zc78722, .subunit.zc78723, .subunit.zc78724, .subunit.zc78725, .subunit.zc78726, .subunit.zc78727, .subunit.zc78728, .subunit.zc78729, .subunit.zc78730, .subunit.zc78731, .subunit.zc78732, .subunit.zc78733, .subunit.zc78734, .subunit.zc78734, .subunit.zc78735, .subunit.zc78736, .subunit.zc78737, .subunit.zc78738, .subunit.zc78738, .subunit.zc78739, .subunit.zc78740, .subunit.zc78741, .subunit.zc78742, .subunit.zc78744, .subunit.zc78745, .subunit.zc78745, .subunit.zc78746, .subunit.zc78746, .subunit.zc78747, .subunit.zc78748, .subunit.zc78749, .subunit.zc78750, .subunit.zc78751, .subunit.zc78752, .subunit.zc78753, .subunit.zc78754, .subunit.zc78756, .subunit.zc78757, .subunit.zc78758, .subunit.zc78759, .subunit.zc78942, .subunit.zc78957{
-    fill: white;
-    stroke: #777;
+    stroke: #ccc;
     stroke-linejoin: round;
     stroke-width: 1;
-    stroke-dasharray:3,2;
+
 }
 
 .subunit:hover {
-    fill: orangered ;
+    stroke: #777;
+    stroke-linejoin: round;
+    stroke-width: 2;
+    z-index: 2;
 }
 
 .subunit-boundary.IRL {
