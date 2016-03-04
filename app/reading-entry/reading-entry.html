@@ -2,6 +2,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading">Enter your reading time!</div>
         <div class="panel-body">
+            <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="3000" close="closeAlert($index)">{{alert.msg}}</uib-alert>
             <form ng-submit="submitTime()">
               <div class="btn-group" uib-dropdown>
                 <button type="button" class="btn btn-primary" uib-dropdown-toggle>

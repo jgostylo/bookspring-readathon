@@ -18,6 +18,7 @@
     "login-failed": "Login failed",
     "registration-failed": "Registration failed",
     "youve-read-this-much": "You've read {{hours}}",
+    "youve-logged-this-much": "You've logged {{minutes}} minutes",
     "logout": "Logout",
     "submit-time": "Submit Time"
 }

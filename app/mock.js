@@ -44,5 +44,6 @@ function generateMockUserEntries() {
 }
 
 
-generateMockUserEntries();
+// generateMockUserEntries();
+// generateMockAllEntriesData();
 

@@ -1,6 +1,7 @@
 'use strict';
 
 var angular = require('angular');
+var moment = require('moment');
 
 /* @ngInject */
 function LoginModalController($rootScope, $scope, $window, $uibModalInstance, bsrFirebase, $translate) {
@@ -16,7 +17,9 @@ function LoginModalController($rootScope, $scope, $window, $uibModalInstance, bs
             return;
         }
         var user = angular.extend(authData, $scope.user);
-        $rootScope.$broadcast('login', user);
+        $scope.$applyAsync(function () {
+            $rootScope.$broadcast('login', user);
+        });
         $uibModalInstance.close(user);
     }
 
@@ -28,12 +31,13 @@ function LoginModalController($rootScope, $scope, $window, $uibModalInstance, bs
             });
             return;
         }
+        $scope.registration.registrationDate = moment().utc().toJSON();
         bsrFirebase.child('users').child(userData.uid).set($scope.registration, function (storageError) {
             if (storageError) {
                 console.log(storageError);
                 $scope.$applyAsync(function () {
                     $scope.form.msgTranslateId = 'registration-failed';
-                })
+                });
             }else {
                 $uibModalInstance.close(angular.extend(userData, $scope.registration));
                 $window.localStorage.setItem('isUser', true);

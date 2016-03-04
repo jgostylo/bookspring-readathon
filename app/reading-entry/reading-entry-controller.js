@@ -4,7 +4,7 @@ var moment = require('moment');
 var _ = require('lodash');
 
 /* @ngInject */
-function ReadingEntryController($scope, $rootScope, $window, bsrFirebase, appFactory) {
+function ReadingEntryController($scope, $rootScope, $filter, $window, bsrFirebase) {
 
     var now = moment().utc();
     var startDate = now.subtract(7, 'days').toDate().toJSON();
@@ -83,6 +83,8 @@ function ReadingEntryController($scope, $rootScope, $window, bsrFirebase, appFac
         $scope.entry.zipCode = user.zipCode;
         $scope.entry.submitted = now;
         determineConsecutiveDays();
+        var msg = $filter('translate')('youve-logged-this-much', {minutes: $scope.entry.minutesRead});
+        $scope.alerts.push({ type: 'success', msg: msg});
         bsrFirebase.child('entries/all').push($scope.entry);
         bsrFirebase.child('entries/users').child(user.uid).push($scope.entry);
     }
@@ -102,11 +104,12 @@ function ReadingEntryController($scope, $rootScope, $window, bsrFirebase, appFac
             .on('value', handleMinutesMapSnapshot);
     }
 
-    function init() {
-        user = appFactory.getUser();
+    function init(evt, authedUser) {
+        user = authedUser;
         fetchMapData();
     }
 
+    $scope.alerts = [];
 
     $scope.entry = {
         minutesRead: 15,
@@ -124,6 +127,10 @@ function ReadingEntryController($scope, $rootScope, $window, bsrFirebase, appFac
     };
 
     $scope.submitTime = handleUserSubmission;
+
+    $scope.closeAlert = function(index) {
+        $scope.alerts.splice(index, 1);
+    };
 
     $rootScope.$on('login', init);
 
