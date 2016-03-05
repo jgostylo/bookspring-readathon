@@ -1,7 +1,6 @@
 'use strict';
 
 require('./app.css');
-require('./app-cache');
 // require('./mock');  // generates mock data
 
 module.exports = require('angular').module('bookspring-readathon', [

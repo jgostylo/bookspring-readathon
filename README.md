@@ -9,7 +9,7 @@
 git branch -D gh-pages
 git checkout -b gh-pages
 npm run clean && npm run build
-git add cache.manifest dist --force
+git add dist --force
 git commit -m 'build'
 git push --force
 ```

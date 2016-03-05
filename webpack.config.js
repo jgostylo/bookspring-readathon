@@ -1,7 +1,6 @@
 'use strict';
 
 var webpack = require('webpack');
-var AppCachePlugin = require('appcache-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -21,13 +20,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin('vendor', './dist/vendor.js'),
-        new AppCachePlugin({
-            cache: [
-                'dist/bootstrap/css/bootstrap.min.css',
-            ],
-            settings: ['prefer-online'],
-            output: 'cache.manifest'
-        })
+        new webpack.optimize.CommonsChunkPlugin('vendor', './dist/vendor.js')
     ]
 };
