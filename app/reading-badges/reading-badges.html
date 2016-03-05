@@ -4,15 +4,14 @@
         <div class="panel-body">
             <span translate="minutes-read"></span>
             <pre>{{minutesRead | json}}</pre>
-            <img ng-show="hasFiveHoursBadge" src="dist/resources/badge-5-hours.png">
-            <img ng-show="hasSevenHoursBadge" src="dist/resources/badge-7-hours.png">
-            <img ng-show="hasTenHoursBadge" src="dist/resources/badge-10-hours.png">
-            <span ng-repeat="(key, badge) in badges">
-                <img ng-show="badge.type === 'two-consecutive-days'" src="dist/resources/badge-2-consecutive-days.png">
-            </span>
-
+            <div class="text-center">
+                <img ng-show="hasFiveHoursBadge" src="dist/resources/badge-5-hours.png">
+                <img ng-show="hasSevenHoursBadge" src="dist/resources/badge-7-hours.png">
+                <img ng-show="hasTenHoursBadge" src="dist/resources/badge-10-hours.png">
+                <span ng-repeat="(key, badge) in badges">
+                    <img ng-show="badge.type === 'two-consecutive-days'" src="dist/resources/badge-2-consecutive-days.png">
+                </span>
+            </div>
         </div>
-
-
     </div>
 </div>

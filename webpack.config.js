@@ -8,9 +8,6 @@ module.exports = {
         app: './app/app.js',
         vendor: './app/vendor.js'
     },
-    devServer: {
-        historyApiFallback: true
-    },
     output: {
         path: __dirname,
         filename: './dist/bundle.js'
@@ -25,12 +22,12 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin('vendor', './dist/vendor.js'),
-        // new AppCachePlugin({
-        //     cache: [
-        //         'dist/bootstrap/css/bootstrap.min.css',
-        //     ],
-        //     settings: ['prefer-online'],
-        //     output: 'cache.manifest'
-        // })
+        new AppCachePlugin({
+            cache: [
+                'dist/bootstrap/css/bootstrap.min.css',
+            ],
+            settings: ['prefer-online'],
+            output: 'cache.manifest'
+        })
     ]
 };

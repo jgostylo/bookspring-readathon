@@ -3,14 +3,15 @@
 <head>
     <title></title>
     <link rel="stylesheet" type="text/css" href="dist/bootstrap/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body ng-app="bookspring-readathon" ng-strict-di ng-controller="appController">
 
     <nav></nav>
 
     <div class="container" ng-show="user">
-        <reading-badges></reading-badges>
         <reading-entry></reading-entry>
+        <reading-badges></reading-badges>
         <reading-map></reading-map>
     </div>
 
