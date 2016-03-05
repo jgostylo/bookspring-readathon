@@ -2,6 +2,7 @@
 'use strict';
 
 var d3 = require('d3');
+var _ = require('lodash');
 var topojson = require('topojson');
 var txJson = require('./texas.json');
 var moment = require('moment');
@@ -118,7 +119,7 @@ function ReadingMapController($rootScope, $scope, bsrFirebase, $window, readingM
 
     function init() {
         getMapData(30);
-        d3.select($window).on('resize', resize);
+        d3.select($window).on('resize', _.debounce(resize, 300));
     }
 
     $scope.dateRangeArray = [
