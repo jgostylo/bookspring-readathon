@@ -1,11 +1,25 @@
-<div id="reading-map" class="container">
-    <div class="btn-group" uib-dropdown dropdown-append-to-body>
-        <button type="button" class="btn btn-primary" uib-dropdown-toggle>
-            <span>{{entry.minutesRead}} {{"date-range" | translate}}</span> <span class="caret"></span>
-        </button>
-    <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-to-body">
-        <li ng-repeat="value in dateRangeArray" role="menuitem"><a ng-click="setRange(value)">{{ value }} <span translate="range-set"></span></a></li>
-    </ul>
+<i class="fa fa-spinner fa-spin"></i><i class="fa fa-spinner fa-spin"></i>
+<div class="col-md-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading ng-scope" translate="reading-map"></div>
+        <div class="panel-body">
+
+            <uib-alert type="success">Showing {{daysShowing}} days of data</uib-alert>
+
+            <div id="reading-map" class="container">
+                <div class="btn-group" uib-dropdown dropdown-append-to-body>
+                    <button type="button" class="btn btn-primary" uib-dropdown-toggle>
+                        <span>{{entry.minutesRead}} {{"date-range" | translate}}</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-to-body">
+                        <li ng-repeat="(key, entryOption) in dateRangeArray">
+                            <a translate="{{entryOption.translateLabel}}" ng-click="getNewMapData(entryOption.timeInDays)"></a>
+                        </li>
+                    </ul>
+                </div>
+                <svg id="map"></svg>
+            </div>
+
         </div>
-    <svg id="map"></svg>
+    </div>
 </div>

@@ -20,5 +20,10 @@
     "youve-read-this-much": "You've read {{hours}}",
     "youve-logged-this-much": "You've logged {{minutes}} minutes",
     "logout": "Logout",
+    "reading-map": "Reading Map",
+    "date-range": "Filter by day range",
+    "one-day": "One day",
+    "one-week": "One week",
+    "one-month": "One month",
     "submit-time": "Submit Time"
 }

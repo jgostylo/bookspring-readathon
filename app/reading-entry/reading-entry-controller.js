@@ -6,8 +6,6 @@ var _ = require('lodash');
 /* @ngInject */
 function ReadingEntryController($scope, $rootScope, $filter, $window, bsrFirebase) {
 
-    var now = moment().utc();
-    var startDate = now.subtract(7, 'days').toDate().toJSON();
     var user;
     var consecutiveBadge = 'two-consecutive-days';
 
@@ -63,20 +61,6 @@ function ReadingEntryController($scope, $rootScope, $filter, $window, bsrFirebas
             });
     }
 
-    function createMinutesMap(zipCodesSnapshot) {
-        var minutesReadMap = {};
-        zipCodesSnapshot.forEach(function (entrySnapshot) {
-            var entry = entrySnapshot.val();
-            if (minutesReadMap[entry.zipCode]) {
-                minutesReadMap[entry.zipCode] += entry.minutesRead;
-            }
-            else {
-                minutesReadMap[entry.zipCode] = entry.minutesRead;
-            }
-        });
-        return minutesReadMap;
-    }
-
     function handleUserSubmission() {
         var now = moment().utc().toDate().toJSON();
         $scope.entry.uid = user.uid;
@@ -89,24 +73,8 @@ function ReadingEntryController($scope, $rootScope, $filter, $window, bsrFirebas
         bsrFirebase.child('entries/users').child(user.uid).push($scope.entry);
     }
 
-
-    function handleMinutesMapSnapshot(snapshot) {
-        var minutesReadMap = createMinutesMap(snapshot);
-        $scope.$evalAsync(function(){
-            $scope.minutesReadMap = minutesReadMap;
-        });
-    }
-
-    function fetchMapData() {
-        bsrFirebase.child('entries/all')
-            .orderByChild('submitted')
-            .startAt(startDate)
-            .on('value', handleMinutesMapSnapshot);
-    }
-
     function init(evt, authedUser) {
         user = authedUser;
-        fetchMapData();
     }
 
     $scope.alerts = [];

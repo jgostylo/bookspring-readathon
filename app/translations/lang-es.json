@@ -16,8 +16,13 @@
     "minutes-set": "minutos",
     "register": "Registro",
     "registration-failed": "Error de inicio de sesion",
-    "submit-time": "presentar",
+    "submit-time": "Presentar",
     "youve-read-this-much": "Usted ha leído {{ hours }} horas",
     "zipcode": "Código postal",
-    "zipcode-invalid": "Código postal no válido"
+    "zipcode-invalid": "Código postal no válido",
+    "reading-map": "Reading Mapa",
+    "date-range": "Filtrar por rango día",
+    "one-day": "Un día",
+    "one-week": "Una semana",
+    "one-month": "Un mes"
 }
