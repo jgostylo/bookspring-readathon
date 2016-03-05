@@ -9,9 +9,7 @@
     "copy-vendor": "cp -r ./node_modules/bootstrap/dist ./dist/bootstrap",
     "copy-resources": "cp -r ./app/resources dist",
     "clean": "rm -rf dist",
-    "add-push": "! git checkout -b gh-pages && git add cache.manifest dist --force && git commit -m 'build' && git push --force && git checkout -",
     "build": "./node_modules/.bin/webpack --optimize-minimize && npm run copy",
-    "deploy": "npm run clean && npm run build && npm run add-push",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
