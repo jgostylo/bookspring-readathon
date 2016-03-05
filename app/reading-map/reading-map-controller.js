@@ -114,7 +114,7 @@ function ReadingMapController($rootScope, $scope, bsrFirebase, $window, readingM
         bsrFirebase.child('entries/all')
             .orderByChild('submitted')
             .startAt(startDate)
-            .on('value', handleMinutesMapSnapshot);
+            .once('value', handleMinutesMapSnapshot);
     }
 
     function init() {
